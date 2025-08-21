@@ -16,7 +16,7 @@ export default function PeerEvaluation() {
     async function fetchEmployees() {
       setLoading(true);
       try {
-        const res = await fetch('https://dummyjson.com/c/ec54-cc72-4bec-8f36'); // Use your get API endpoint
+        const res = await fetch('https://dummyjson.com/c/ec54-cc72-4bec-8f36'); 
         const data = await res.json();
         if (res.ok) {
           setEmployees(Array.isArray(data) ? data : []);

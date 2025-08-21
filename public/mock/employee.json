@@ -1,0 +1,70 @@
+[
+  {
+    "employeeEvaluation": {
+      "university": {
+        "logo": "/astu-logo.png",
+        "name": "Adama Science and Technology University",
+        "contact": {
+          "phone": "+251-221-110000",
+          "fax": "+251-221-110001",
+          "email": "info@astu.edu.et"
+        },
+        "department": "College of Electrical Engineering and Computing"
+      },
+      "evaluationDetails": {
+        "summary": "Mid-Year Evaluation",
+        "term": "2025 Semester 1"
+      },
+      "employeeInfo": {
+        "name": "John Smith",
+        "typeOfWork": "Teaching & Research",
+        "jobType": "Lecturer",
+        "yearOfEvaluation": "2025",
+        "evaluationLeader": "Dr. Fetene R. Melka",
+        "sign": "J.S.",
+        "date": "2025-06-01"
+      },
+      "marks": {
+        "leaderMark70": "65",
+        "selfMark5": "4",
+        "leaderMark10": "9",
+        "peerMark15": "13"
+      },
+      "summary": "The employee has shown excellent teaching performance and good engagement in research activities."
+    }
+  },
+  {
+    "employeeEvaluation": {
+      "university": {
+        "logo": "/astu-logo.png",
+        "name": "Adama Science and Technology University",
+        "contact": {
+          "phone": "+251-221-110000",
+          "fax": "+251-221-110001",
+          "email": "faculty@astu.edu.et"
+        },
+        "department": "College of Mechanical Engineering"
+      },
+      "evaluationDetails": {
+        "summary": "Annual Evaluation",
+        "term": "2025 Full Year"
+      },
+      "employeeInfo": {
+        "name": "Emily Johnson",
+        "typeOfWork": "Research",
+        "jobType": "Assistant Professor",
+        "yearOfEvaluation": "2025",
+        "evaluationLeader": "Prof. Dawit Mekonnen",
+        "sign": "E.J.",
+        "date": "2025-07-10"
+      },
+      "marks": {
+        "leaderMark70": "60",
+        "selfMark5": "5",
+        "leaderMark10": "8",
+        "peerMark15": "12"
+      },
+      "summary": "The employee actively participated in research projects and successfully published in international journals."
+    }
+  }
+]
