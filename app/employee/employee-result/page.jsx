@@ -33,7 +33,7 @@ export default function PerformanceEvaluationResualt() {
         <div className="p-4 border-b border-gray-400 grid grid-cols-2 gap-4">
           <div>
             <label className="block mb-1 font-medium">Employee Name:</label>
-             <p  className="border w-full p-2 rounded h-10">bayisa balcha</p> 
+             <p  className="border w-full p-2 rounded h-10">Kenenisa Mekonnen</p> 
           </div>
           <div>
             <label className="block mb-1 font-medium">Type of work:</label>
@@ -55,7 +55,7 @@ export default function PerformanceEvaluationResualt() {
           <div className="grid grid-cols-2 gap-2">
             <div>
               <label className="block mb-1 font-medium">Sign:</label>
-             <p  className="border w-full p-2 rounded h-10">bayisa</p> 
+             <p  className="border w-full p-2 rounded h-10">Kenenisa Mekonnen</p> 
             </div>
             <div>
               <label className="block mb-1 font-medium">Date:</label>

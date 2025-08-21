@@ -1,6 +1,41 @@
 import { Card } from '@/components/ui/card'
 import React from 'react'
+
 import AdminstractureNavBar from '../shared/admisteratur-navbar/NavbarAdmin'
+
+// Sample employee data
+const EmployeList = [
+  {
+    id: 1,
+    fullName: 'Alice Johnson',
+    department: 'Computer Science',
+    position: 'Developer',
+    jobType: 'Full-Time',
+    email: 'alice.johnson@example.com',
+    phone: '123-456-7890',
+    status: 'Active',
+  },
+  {
+    id: 2,
+    fullName: 'Bob Smith',
+    department: 'Mathematics',
+    position: 'Analyst',
+    jobType: 'Part-Time',
+    email: 'bob.smith@example.com',
+    phone: '987-654-3210',
+    status: 'Inactive',
+  },
+  {
+    id: 3,
+    fullName: 'Carol Lee',
+    department: 'Physics',
+    position: 'Researcher',
+    jobType: 'Full-Time',
+    email: 'carol.lee@example.com',
+    phone: '555-123-4567',
+    status: 'Active',
+  },
+];
 
 export default function EmployeeList() {
   return (
