@@ -21,7 +21,7 @@ export default function ToggleAdminsterSideBar() {
 
       <div className="flex flex-1">
        
-        <div className="hidden md:block w-64">
+        <div className="hidden md:block w-32 h-full">
           <AdminsterSideBar />
         </div>
 

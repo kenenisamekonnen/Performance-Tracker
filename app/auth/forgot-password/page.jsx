@@ -15,9 +15,25 @@ import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link'
 import Image from 'next/image'
 
+
 export default function Page() {
   const [form, setForm] = useState({ email: '', password: '' })
   const [pending,setPending]=useState(false)
+
+  function createCounter() {
+    let counter = 0;
+    return function() {
+      counter += 1;
+      return counter
+    }
+  }
+
+  const counter1 = createCounter();
+  const counter2 = createCounter();
+  console.log(counter1);
+  console.log(counter1);
+  console.log(counter2);
+
   return (
     <div className='relative min-h-screen bg-[url("/image/astuget1.jpg")] bg-cover bg-center'>
     

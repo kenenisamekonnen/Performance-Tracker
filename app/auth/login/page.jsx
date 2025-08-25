@@ -19,7 +19,7 @@ export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' })
   const [pending,setPending]=useState(false)
   return (
-    <div className='relative min-h-screen bg-[url("/image/astuget1.jpg")] bg-cover bg-center'>
+    <div className='mt-10 relative bg-[url("/image/astuget1.jpg")] bg-cover bg-center overflow-hidden'>
     
       <div className='absolute inset-0 bg-white/50 backdrop-blur-sm z-0' />
 

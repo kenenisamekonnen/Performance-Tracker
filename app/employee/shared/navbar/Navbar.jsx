@@ -18,7 +18,7 @@ export default function Navbar() {
   ]
 
   return (
-    <Card className="w-full bg-[#8D92EB] text-white shadow-lg rounded-none px-6 py-4 z-50 relative">
+    <Card className="w-full bg-emerald-950 text-white shadow-lg rounded-none px-2 py-1 z-50 relative">
       <nav className="flex items-center justify-between px-4 py-1 ml-6 mr-6">
         
      
