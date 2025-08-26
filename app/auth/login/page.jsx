@@ -14,12 +14,29 @@ import { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link'
 import Image from 'next/image'
+import { login } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
-  const [form, setForm] = useState({ email: '', password: '' })
-  const [pending,setPending]=useState(false)
+  const [pending,setPending] = useState(false)
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
+      router.push("/dashboard");
+    } catch (err) {
+      setError("Invalid credentials");
+    }
+  };
+
   return (
-    <div className='mt-10 relative bg-[url("/image/astuget1.jpg")] bg-cover bg-center overflow-hidden'>
+    <div className='bg-[url("/image/astuget1.jpg")] bg-cover bg-center overflow-hidden'>
     
       <div className='absolute inset-0 bg-white/50 backdrop-blur-sm z-0' />
 
@@ -27,16 +44,13 @@ export default function Login() {
         <Image
           src="/image/astuLogo.png"
           alt="ASTU Logo"
-          width={100}
-          height={100}
+          width={70}
+          height={70}
           className="rounded-full shadow-lg"
         />
         <h1 className="text-2xl sm:text-3xl font-semibold text-gray-800">
           ASTU Staff Performance Evaluator
         </h1>
-        <p className="text-sm text-gray-600 max-w-md px-4">
-          A smart system to manage, review, and evaluate academic staff performance at Adama Science and Technology University.
-        </p>
       </div>
 
    
@@ -52,13 +66,17 @@ export default function Login() {
           </CardHeader>
 
           <CardContent>
-            <form className='space-y-4'>
+            <form
+             className='space-y-4'
+             onSubmit={handleSubmit}
+             >
+
               <Input
                 type='email'
                 name='email'
                 disabled={pending}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder='Enter your email...'
                 className='bg-gray-100'
               />
@@ -66,8 +84,8 @@ export default function Login() {
                 type='password'
                 disabled={pending}
                 name='password'
-                value={form.password}
-                onChange={(e) => setForm({ ...form, password: e.target.value })}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder='********'
                 className='bg-gray-100'
               />
@@ -79,20 +97,6 @@ export default function Login() {
                 Login
               </Button>
             </form>
-
-           
-            <div className='my-4'>
-              <Button
-                onClick={() => {}}
-                variant='outline'
-                size='lg'
-                disabled={pending}
-                className='w-full flex items-center justify-center gap-2 bg-slate-200 hover:bg-slate-300 transition-transform hover:scale-105'
-              >
-                <FcGoogle className='size-6' />
-                Continue with Google
-              </Button>
-            </div>
 
             <Separator className='my-4' />
             <Link href='/auth/forgot-password' className='text-sky-600 ml-2 hover:underline'>

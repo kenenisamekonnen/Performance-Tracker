@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { apiRequest } from '@/lib/api'  // ✅ use centralized API handler
 
 export default function NewUserCreationForms() {
   const [form, setForm] = useState({
@@ -23,12 +24,13 @@ export default function NewUserCreationForms() {
     emgRelation: '',
     emgContact: '',
     emgJob: '',
+    role: '', // ✅ role added (employee, team-leader, etc.)
   })
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target 
+    const { name, value, files } = e.target
     setForm((prev) => ({
       ...prev,
       [name]: files ? files[0] : value,
@@ -39,44 +41,47 @@ export default function NewUserCreationForms() {
     e.preventDefault()
     setLoading(true)
     setMessage('')
+
     try {
       const formData = new FormData()
       Object.entries(form).forEach(([key, value]) => {
         if (value) formData.append(key, value)
       })
-      const res = await fetch('/api/new-user', {
+
+      // ✅ Use apiRequest but override headers (because of FormData)
+      const res = await apiRequest('/users', {
         method: 'POST',
         body: formData,
+        headers: {}, // don't set Content-Type (browser sets multipart automatically)
       })
-      if (res.ok) {
-        setMessage('✅ User registered successfully!')
-        setForm({
-          fullName: '',
-          gender: '',
-          dob: '',
-          email: '',
-          password: '',
-          phone: '',
-          country: '',
-          region: '',
-          photo: null,
-          position: '',
-          level: '',
-          experience: '',
-          field: '',
-          department: '',
-          instName: '',
-          emgName: '',
-          emgRelation: '',
-          emgContact: '',
-          emgJob: '',
-        })
-      } else {
-        setMessage('❌ Failed to register user.')
-      }
+
+      setMessage('✅ User registered successfully!')
+      setForm({
+        fullName: '',
+        gender: '',
+        dob: '',
+        email: '',
+        password: '',
+        phone: '',
+        country: '',
+        region: '',
+        photo: null,
+        position: '',
+        level: '',
+        experience: '',
+        field: '',
+        department: '',
+        instName: '',
+        emgName: '',
+        emgRelation: '',
+        emgContact: '',
+        emgJob: '',
+        role: '',
+      })
     } catch (err) {
       setMessage('❌ Error: ' + err.message)
     }
+
     setLoading(false)
   }
 
@@ -135,6 +140,22 @@ export default function NewUserCreationForms() {
               <option>Male</option>
               <option>Female</option>
               <option>Other</option>
+            </select>
+          </label>
+
+          {/* Role Selection (NEW) */}
+          <label className="block">
+            <span className="font-medium text-gray-700">Role</span>
+            <select
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+              className="mt-1 px-4 py-2 w-full bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+              required
+            >
+              <option value="">Select role</option>
+              <option value="employee">Employee</option>
+              <option value="team-leader">Team Leader</option>
             </select>
           </label>
 
